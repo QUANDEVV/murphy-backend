@@ -1,52 +1,23 @@
 from rest_framework import serializers
 # from.models import Beach
 # from.models import Video
-from.models import Girls ,  Photo , Video , User , Creator
+from.models import Auction ,Adverts
 from cloudinary.uploader import upload
 
 
 
 
-
-
-
-
-class UserSerializer(serializers.ModelSerializer):
+class AuctionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ['id', 'username', 'email', 'password']
+        model = Auction
+        fields = ['id', 'name', 'description', 'category', 'price', 'condition', 'image']
 
 
 
-
-class GirlsSerializer(serializers.ModelSerializer):
- class Meta:
-   model = Girls
-   fields = '__all__'
-   
-
-        
-        
-class PhotoSerializer(serializers.ModelSerializer):
+class AdvertsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Photo
-        fields = '__all__'
-        
-        
-class VideoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Video
-        fields = '__all__'
-
-
-
-
-class CreatorSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Creator
-        fields = '__all__'
-   
-
+        model = Adverts
+        fields = ['id', 'image', 'name', 'description', 'price']
    
 
 

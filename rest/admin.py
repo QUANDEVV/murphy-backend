@@ -1,16 +1,10 @@
 from django.contrib import admin
-from .models import Girls, User,  Photo , Video , Photos , Creator , Password
-
-admin.site.register(Girls)
-admin.site.register(User)
-admin.site.register(Photo)
-admin.site.register(Photos)
-
-admin.site.register(Video)
+from .models import Adverts , Auction
 
 
-admin.site.register(Creator)
-admin.site.register(Password)
+
+admin.site.register(Adverts)
+admin.site.register(Auction)
 
 
 
