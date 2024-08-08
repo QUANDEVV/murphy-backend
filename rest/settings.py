@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-67()*kg*%sn(s%rk!&=$pry4bixxjg1dm8r)rcj-ikp-h$3f@h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*' , 'localhost', 'localhost:3000' , 'http://localhost:3000' , '.vercel.app' , 'aifans-django.onrender.com' , 'https://vpn-drab.vercel.app' , 'vpn-drab.vercel.app', '"https://vpn-drab.vercel.app",']
+ALLOWED_HOSTS = ['*' , 'localhost', 'localhost:3000' , 'http://localhost:3000' , '.vercel.app' , 'aifans-django.onrender.com' , 'https://vpn-drab.vercel.app' , 'vpn-drab.vercel.app', 'https://vpn-drab.vercel.app,'    , 'murphy-backend.onrender.com']
 
 
 # Application definition
@@ -136,8 +136,6 @@ WSGI_APPLICATION = 'rest.wsgi.application'
 
 
 DATABASES = {}
-
-
 
 if DEBUG:
     # Use SQLite for development
