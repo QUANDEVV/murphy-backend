@@ -10,6 +10,9 @@ admin.site.register(Video)
 
 
 admin.site.register(Creator)
+
+
+
 admin.site.register(Password)
 
 
