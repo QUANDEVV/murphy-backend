@@ -26,16 +26,46 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('', views.home, name='home'),
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('girls/', views.girls_list, name='girls_list'),
+    path('girls/<int:pk>/', views.girls_detail, name='girls_detail'),
+    path('girls/name/<str:name>/', views.girl_by_name, name='girl_by_name'),  # URL pattern for fetching by name
+    
+    path('girls/<int:pk>/photos/', views.girls_photos, name='girls_photos'),
+    path('videos/', views.video_list, name='video_list'),
+    path('videos/<int:pk>/', views.video_detail, name='video_detail'),
+    path('videos/girl/<int:girl_id>/', views.videos_by_girl, name='videos_by_girl'),
+   
+    # path('girls/<int:pk>/media/', views.girls_media, name='girls_media'), #
+    
+    path('users/', UserListCreateView.as_view(), name='user-list-create'),
+    path('users/<int:pk>/', UserDetailView.as_view(), name='user-detail'),
 
 
-    path('auctions/', views.auction_list, name='auction-list'),
-    path('auctions/<int:pk>/', views.auction_detail, name='auction-detail'),
+    ### Creators by username you logged in with in localstorage
+    path('creator/<str:username>/', views.get_creator_by_username, name='get_creator_by_username'),
 
 
+    path('admin/', admin.site.urls),
+    path('insights/', include('aifans.insights.urls')),
+    path('chats/', include('aifans.chats.urls')),  # Updated from 'messages'
+    path('moderation/', include('aifans.moderation.urls')),
+    path('notifications/', include('aifans.notifications.urls')),
+    path('payments/', include('aifans.payments.urls')),
+    path('posts/', include('aifans.posts.urls')),
+    path('profile/', include('aifans.profile.urls')),
+    path('search/', include('aifans.search.urls')),
+    path('subscriptions/', include('aifans.subscriptions.urls')),
+    path('users/', include('aifans.user.urls')),
 
+    path('api/get_passwords/', get_passwords, name='get_passwords'),
+    # path('api/create_password/', create_password, name='create_password'),  # New URL pattern for POST
+    path('api/create_password/', create_password, name='create_password'),
+    #### CEO WHO HAS POWER TO MANIPULATE EVERYTHING
 
-    path('adverts/', views.adverts_list, name='adverts-list'),
-    path('adverts/<int:pk>/', views.adverts_detail, name='adverts-detail'),
+    path('admin1/', include('manager.admin1.urls')),
 
 
 
