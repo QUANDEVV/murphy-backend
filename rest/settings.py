@@ -137,6 +137,8 @@ WSGI_APPLICATION = 'rest.wsgi.application'
 
 DATABASES = {}
 
+
+
 if DEBUG:
     # Use SQLite for development
     DATABASES['default'] = {
